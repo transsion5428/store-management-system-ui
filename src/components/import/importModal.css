@@ -1,0 +1,134 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.import-modal {
+    width: 720px;
+    max-width: 95%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px 24px;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.import-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.import-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+}
+
+/* TOP ACTIONS */
+.import-actions-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.template-btn {
+    background: #1e6bd6;
+    color: #fff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.import-record {
+    color: #1e6bd6;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* TIP */
+.import-tip {
+    margin: 15px 0 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* UPLOAD */
+.upload-section {
+    margin-top: 10px;
+}
+
+.upload-btn {
+    background: #1e6bd6;
+    color: #fff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.file-note {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* FOOTER */
+.import-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.save-btn {
+    background: #1e6bd6;
+    color: #fff;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.save-btn:disabled {
+    background: #9bbcf0;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 7px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}

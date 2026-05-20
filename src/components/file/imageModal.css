@@ -1,0 +1,202 @@
+/* ================= BACKDROP ================= */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+/* ================= MODAL BOX ================= */
+.image-modal-content {
+    background: #ffffff;
+
+    width: 90%;
+    height: 85vh;
+    max-width: 1200px;
+
+    padding: 20px;
+    border-radius: 14px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+/* ================= HEADER ================= */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* ================= PRODUCT INFO ================= */
+.image-modal-content p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+}
+
+/* ================= SCROLL AREA ================= */
+.image-content-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* ================= SECTION TITLE ================= */
+.image-modal-content h4 {
+    margin: 16px 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ================= IMAGE GRID ================= */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    margin-bottom: 20px;
+}
+
+/* ================= IMAGE BOX ================= */
+.image-box {
+    width: 130px;
+    height: 130px;
+
+    border-radius: 12px;
+    border: 1px solid #ddd;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    background: #fafafa;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    flex-shrink: 0;
+}
+
+.image-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= IMAGE ================= */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= ADD BOX (+) ================= */
+.add-box {
+    font-size: 36px;
+    font-weight: bold;
+    color: #888;
+
+    border: 2px dashed #ccc;
+    background: #fff5f2;
+}
+
+.add-box:hover {
+    background: #ffe4dc;
+    color: #333;
+    border-color: #ff7a59;
+}
+
+/* ================= SCROLLBAR ================= */
+.image-content-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.image-content-scroll::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ================= PREVIEW MODAL ================= */
+.preview-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* ================= PREVIEW IMAGE ================= */
+.preview-content img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes popupFade {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .image-modal-content {
+        width: 95%;
+        height: 90vh;
+        padding: 15px;
+    }
+
+    .image-box {
+        width: 100px;
+        height: 100px;
+    }
+}
