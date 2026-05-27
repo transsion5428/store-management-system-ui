@@ -87,6 +87,9 @@ const Providers = () => {
                                 <th>NAME</th>
                                 <th>PHONE</th>
                                 <th>EMAIL</th>
+                                <th>GSTN No.</th>
+                                <th>PAN No.</th>
+                                <th>TAN No.</th>
                                 <th>EDIT</th>
                             </tr>
                         </thead>
@@ -99,6 +102,9 @@ const Providers = () => {
                                         <td>{provider.name}</td>
                                         <td>{provider.phoneNumber}</td>
                                         <td>{provider.email}</td>
+                                        <td>{provider.gst}</td>
+                                        <td>{provider.pan}</td>
+                                        <td>{provider.tan}</td>
                                         <td>
                                             <button
                                                 className="edit-btn"

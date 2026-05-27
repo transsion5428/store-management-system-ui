@@ -304,7 +304,7 @@ const Product = () => {
                         className="action-btn edit-action"
                         onClick={handleEdit}
                     >
-                        <FontAwesomeIcon icon={faPen} /> Edit
+                        <FontAwesomeIcon icon={faPen} /> Assign Supplier
                     </button>
                 )}
 

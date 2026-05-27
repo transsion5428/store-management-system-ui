@@ -56,6 +56,13 @@ import NotFound from './pages/not-found/NotFound';
 
 import userVerification from './utils/userVerification';
 
+
+import setupLocatorUI from "@locator/runtime";
+
+if (process.env.NODE_ENV === "development") {
+  setupLocatorUI();
+}
+
 const hasMenuAccess = (path) => {
     try {
         const user = JSON.parse(localStorage.getItem('user') || 'null');
