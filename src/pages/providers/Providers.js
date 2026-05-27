@@ -59,11 +59,6 @@ const Providers = () => {
     return (
         <div className="providers-container">
             <div className="options">
-                <SearchBox
-                    onSearch={setQuery}
-                    disabled={isLoading}
-                />
-
                 <button
                     className="provider-add-btn"
                     onClick={() => {

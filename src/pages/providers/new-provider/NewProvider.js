@@ -17,6 +17,13 @@ const NewProvider = ({ isDrawer = false, onClose }) => {
         name: '',
         phoneNumber: '',
         email: '',
+
+        // GST / PAN / TAN VALUES
+        gst: '',
+        pan: '',
+        tan: '',
+
+        // FILE URLS
         gstnUrl: null,
         panUrl: null,
         tanUrl: null
@@ -78,15 +85,6 @@ const NewProvider = ({ isDrawer = false, onClose }) => {
 
             console.log(`${fileType} uploaded`, response.data);
 
-            // RESPONSE
-            // [
-            //   {
-            //      id: 4,
-            //      fileUrl: "abc.png",
-            //      fileType: "GSTN"
-            //   }
-            // ]
-
             const uploadedFile = response.data?.[0];
 
             if (!uploadedFile) return;
@@ -138,7 +136,6 @@ const NewProvider = ({ isDrawer = false, onClose }) => {
 
         if (!file) return;
 
-        // SAVE FILE LOCALLY
         setAttachments((prev) => ({
             ...prev,
             [fieldName]: file
@@ -179,10 +176,6 @@ const NewProvider = ({ isDrawer = false, onClose }) => {
         try {
 
             console.log('FINAL REQUEST BODY', trimmedData);
-
-            /* =========================
-               CREATE PROVIDER
-            ========================= */
 
             await api.post(
                 '/api/v1/provider',
@@ -278,83 +271,132 @@ const NewProvider = ({ isDrawer = false, onClose }) => {
 
                 </div>
 
-                {/* ATTACHMENTS */}
-                <div className="attachments-container">
+                {/* GST */}
+                <div className="form-item full">
 
-                    {/* GSTN */}
-                    <div className="form-item full">
+                    <label htmlFor="gst">
+                        GST Number
+                    </label>
 
-                        <label>
-                            GSTN Document
-                        </label>
+                    <input
+                        className="input"
+                        type="text"
+                        id="gst"
+                        maxLength="30"
+                        value={formData.gst}
+                        onChange={handleChange}
+                    />
 
-                        <input
-                            type="file"
-                            name="gstnFile"
-                            className="file-input"
-                            onChange={handleFileChange}
-                            accept=".pdf,.jpg,.jpeg,.png"
-                        />
+                </div>
 
-                        {
-                            formData.gstnUrl && (
-                                <p className="upload-success">
-                                    GSTN uploaded successfully
-                                </p>
-                            )
-                        }
+                {/* GST FILE */}
+                <div className="form-item full">
 
-                    </div>
+                    <label>
+                        GSTN Document
+                    </label>
 
-                    {/* PAN */}
-                    <div className="form-item full">
+                    <input
+                        type="file"
+                        name="gstnFile"
+                        className="file-input"
+                        onChange={handleFileChange}
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    />
 
-                        <label>
-                            PAN Document
-                        </label>
+                    {
+                        formData.gstnUrl && (
+                            <p className="upload-success">
+                                GSTN uploaded successfully
+                            </p>
+                        )
+                    }
 
-                        <input
-                            type="file"
-                            name="panFile"
-                            className="file-input"
-                            onChange={handleFileChange}
-                            accept=".pdf,.jpg,.jpeg,.png"
-                        />
+                </div>
 
-                        {
-                            formData.panUrl && (
-                                <p className="upload-success">
-                                    PAN uploaded successfully
-                                </p>
-                            )
-                        }
+                {/* PAN */}
+                <div className="form-item full">
 
-                    </div>
+                    <label htmlFor="pan">
+                        PAN Number
+                    </label>
 
-                    {/* TAN */}
-                    <div className="form-item full">
+                    <input
+                        className="input"
+                        type="text"
+                        id="pan"
+                        maxLength="30"
+                        value={formData.pan}
+                        onChange={handleChange}
+                    />
 
-                        <label>
-                            TAN Document
-                        </label>
+                </div>
 
-                        <input
-                            type="file"
-                            name="tanFile"
-                            className="file-input"
-                            onChange={handleFileChange}
-                            accept=".pdf,.jpg,.jpeg,.png"
-                        />
+                {/* PAN FILE */}
+                <div className="form-item full">
 
-                        {
-                            formData.tanUrl && (
-                                <p className="upload-success">
-                                    TAN uploaded successfully
-                                </p>
-                            )
-                        }
+                    <label>
+                        PAN Document
+                    </label>
 
-                    </div>
+                    <input
+                        type="file"
+                        name="panFile"
+                        className="file-input"
+                        onChange={handleFileChange}
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    />
+
+                    {
+                        formData.panUrl && (
+                            <p className="upload-success">
+                                PAN uploaded successfully
+                            </p>
+                        )
+                    }
+
+                </div>
+
+                {/* TAN */}
+                <div className="form-item full">
+
+                    <label htmlFor="tan">
+                        TAN Number
+                    </label>
+
+                    <input
+                        className="input"
+                        type="text"
+                        id="tan"
+                        maxLength="30"
+                        value={formData.tan}
+                        onChange={handleChange}
+                    />
+
+                </div>
+
+                {/* TAN FILE */}
+                <div className="form-item full">
+
+                    <label>
+                        TAN Document
+                    </label>
+
+                    <input
+                        type="file"
+                        name="tanFile"
+                        className="file-input"
+                        onChange={handleFileChange}
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    />
+
+                    {
+                        formData.tanUrl && (
+                            <p className="upload-success">
+                                TAN uploaded successfully
+                            </p>
+                        )
+                    }
 
                 </div>
 
