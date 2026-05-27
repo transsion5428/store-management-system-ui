@@ -173,3 +173,19 @@
         width: 100%;
     }
 }
+
+
+/* =========================
+   ATTACHMENTS VERTICAL
+========================= */
+
+.attachments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.attachment-item {
+    width: 100%;
+}

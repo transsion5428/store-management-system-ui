@@ -110,3 +110,20 @@
     }
 
 }
+
+
+
+.file-input {
+    border: 1.5px solid #dcdde1;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: white;
+    width: 100%;
+    font-size: 14px;
+    height: 45px;
+}
+
+.drawer-content .file-input {
+    height: 42px;
+    font-size: 13px;
+}
