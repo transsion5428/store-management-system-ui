@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPlus,
-    faPen
+    faPen,
+    faEye,
+    faXmark
 } from '@fortawesome/free-solid-svg-icons';
 
 import './providers.css';
@@ -32,6 +34,11 @@ const Providers = () => {
     const [selectedProviderId, setSelectedProviderId] = useState(null);
 
     const [drawerType, setDrawerType] = useState(null);
+
+    // ================= FILE POPUP =================
+    const [isFilePopupOpen, setIsFilePopupOpen] = useState(false);
+
+    const [selectedFileUrl, setSelectedFileUrl] = useState('');
 
     const navigate = useNavigate();
 
@@ -65,6 +72,31 @@ const Providers = () => {
             setIsLoading(false);
 
         }
+    };
+
+    // ================= OPEN FILE POPUP =================
+    const openFilePopup = (fileName) => {
+
+        if (!fileName) {
+
+            alert('File not available');
+
+            return;
+        }
+
+        const fileUrl = `${API}/api/v1/api/files/view/${fileName}`;
+
+        setSelectedFileUrl(fileUrl);
+
+        setIsFilePopupOpen(true);
+    };
+
+    // ================= CLOSE FILE POPUP =================
+    const closeFilePopup = () => {
+
+        setSelectedFileUrl('');
+
+        setIsFilePopupOpen(false);
     };
 
     useEffect(() => {
@@ -154,8 +186,6 @@ const Providers = () => {
 
                                 <tr>
 
-                                    <th>ID</th>
-
                                     <th>NAME</th>
 
                                     <th>PHONE</th>
@@ -182,19 +212,77 @@ const Providers = () => {
 
                                         <tr key={provider.providerId}>
 
-                                            <td>{provider.providerId}</td>
-
                                             <td>{provider.name}</td>
 
                                             <td>{provider.phoneNumber}</td>
 
                                             <td>{provider.email}</td>
 
-                                            <td>{provider.gst}</td>
+                                            {/* ================= GST ================= */}
+                                            <td>
 
-                                            <td>{provider.pan}</td>
+                                                <div className="doc-cell">
 
-                                            <td>{provider.tan}</td>
+                                                    <span className="doc-number">
+                                                        {provider.gst}
+                                                    </span>
+
+                                                    <button
+                                                        className="view-btn"
+                                                        onClick={() =>
+                                                            openFilePopup(provider.gstnUrl)
+                                                        }
+                                                    >
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </button>
+
+                                                </div>
+
+                                            </td>
+
+                                            {/* ================= PAN ================= */}
+                                            <td>
+
+                                                <div className="doc-cell">
+
+                                                    <span className="doc-number">
+                                                        {provider.pan}
+                                                    </span>
+
+                                                    <button
+                                                        className="view-btn"
+                                                        onClick={() =>
+                                                            openFilePopup(provider.panUrl)
+                                                        }
+                                                    >
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </button>
+
+                                                </div>
+
+                                            </td>
+
+                                            {/* ================= TAN ================= */}
+                                            <td>
+
+                                                <div className="doc-cell">
+
+                                                    <span className="doc-number">
+                                                        {provider.tan}
+                                                    </span>
+
+                                                    <button
+                                                        className="view-btn"
+                                                        onClick={() =>
+                                                            openFilePopup(provider.tanUrl)
+                                                        }
+                                                    >
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </button>
+
+                                                </div>
+
+                                            </td>
 
                                             <td>
 
@@ -225,7 +313,7 @@ const Providers = () => {
                                     <tr>
 
                                         <td
-                                            colSpan="8"
+                                            colSpan="7"
                                             className="no-results"
                                         >
                                             No suppliers found
@@ -302,6 +390,46 @@ const Providers = () => {
                             />
 
                         )}
+
+                    </div>
+
+                </div>
+
+            )}
+
+            {/* ================= FILE POPUP ================= */}
+
+            {isFilePopupOpen && (
+
+                <div
+                    className="file-popup-overlay"
+                    onClick={closeFilePopup}
+                >
+
+                    <div
+                        className="file-popup"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+
+                        <div className="file-popup-header">
+
+                            <h3>Document Preview</h3>
+
+                            <button onClick={closeFilePopup}>
+                                <FontAwesomeIcon icon={faXmark} />
+                            </button>
+
+                        </div>
+
+                        <div className="file-popup-body">
+
+                            <img
+                                src={selectedFileUrl}
+                                alt="Document"
+                                className="preview-image"
+                            />
+
+                        </div>
 
                     </div>
 
